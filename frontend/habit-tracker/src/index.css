@@ -293,3 +293,19 @@ body::before { animation: aurora-shift 22s ease-in-out infinite; }
   border-radius: 8px;
 }
 ::-webkit-scrollbar-thumb:hover { background: var(--text-faint); }
+
+/* Dropdown menu styling */
+select {
+  color: var(--text);
+  background: var(--input-bg);
+}
+
+select option {
+  color: #111827;
+  background: #f3f4f6;
+}
+
+html.dark select option {
+  color: #ffffff;
+  background: #1f2937;
+}
