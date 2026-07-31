@@ -389,16 +389,18 @@ export default function Insights() {
                   }}
                   contentStyle={tooltipStyle}
                 />
-                <Bar dataKey="count" fill="url(#day-bar)" radius={[6, 6, 0, 0]} />
+                <Bar
+                  dataKey="count"
+                  fill="url(#day-bar)"
+                  radius={[6, 6, 0, 0]}
+                />
               </BarChart>
             </ResponsiveContainer>
           </div>
         </div>
 
         <div className="card p-5">
-          <div className="text-sm font-medium mb-3">
-            This week vs last week
-          </div>
+          <div className="text-sm font-medium mb-3">This week vs last week</div>
           <div style={{ width: "100%", height: 240 }}>
             <ResponsiveContainer>
               <BarChart data={compareData}>
@@ -455,7 +457,15 @@ export default function Insights() {
                       <Cell key={i} fill={PIE_COLORS[i % PIE_COLORS.length]} />
                     ))}
                   </Pie>
-                  <Tooltip contentStyle={tooltipStyle} />
+                  <Tooltip
+                    contentStyle={tooltipStyle}
+                    labelStyle={{
+                      color: isDark ? "#ffffff" : "#13131b",
+                    }}
+                    itemStyle={{
+                      color: isDark ? "#ffffff" : "#13131b",
+                    }}
+                  />
                   <Legend
                     wrapperStyle={{ fontSize: 12, color: tick }}
                     iconType="circle"

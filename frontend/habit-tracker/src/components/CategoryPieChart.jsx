@@ -58,15 +58,21 @@ export default function CategoryPieChart({ data }) {
                   }`,
                   borderRadius: 12,
                   fontSize: 12,
-                  color: theme === "dark" ? "#ebebf5" : "#13131b",
+                  color: theme === "dark" ? "#ffffff" : "#13131b",
                   backdropFilter: "blur(12px)",
+                }}
+                labelStyle={{
+                  color: theme === "dark" ? "#ffffff" : "#13131b",
+                }}
+                itemStyle={{
+                  color: theme === "dark" ? "#ffffff" : "#13131b",
                 }}
               />
               <Legend
                 formatter={(value) => (
                   <span
                     style={{
-                      color: isDark ? "#f3f4f6" : "#374151",
+                      color: theme === "dark" ? "#f3f4f6" : "#374151",
                       fontSize: 12,
                     }}
                   >
