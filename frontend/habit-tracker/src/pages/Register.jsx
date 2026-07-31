@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Link, Navigate, useNavigate } from "react-router-dom";
-import { Sparkles, Sun, Moon } from "lucide-react";
+import { Sparkles, Sun, Moon, Eye, EyeOff, } from "lucide-react";
 import { useAuth } from "../context/AuthContext.jsx";
 import { useTheme } from "../context/ThemeContext.jsx";
 
@@ -9,6 +9,7 @@ export default function Register() {
   const { theme, toggle } = useTheme();
   const navigate = useNavigate();
   const [form, setForm] = useState({ name: "", email: "", password: "" });
+  const [showPassword, setShowPassword] = useState(false);
   const [err, setErr] = useState("");
   const [loading, setLoading] = useState(false);
 
@@ -45,10 +46,7 @@ export default function Register() {
       </button>
 
       <div className="w-full max-w-md">
-        <Link
-          to="/"
-          className="flex items-center justify-center gap-2 mb-6"
-        >
+        <Link to="/" className="flex items-center justify-center gap-2 mb-6">
           <div className="w-9 h-9 rounded-xl bg-gradient-to-br from-brand-500 to-brand-700 text-white flex items-center justify-center shadow-lg shadow-brand-500/30">
             <Sparkles size={18} />
           </div>
@@ -86,14 +84,26 @@ export default function Register() {
             </div>
             <div>
               <label className="label">Password</label>
-              <input
-                className="input"
-                type="password"
-                value={form.password}
-                onChange={set("password")}
-                placeholder="At least 6 characters"
-                required
-              />
+
+              <div className="relative">
+                <input
+                  className="input pr-12"
+                  type={showPassword ? "text" : "password"}
+                  value={form.password}
+                  onChange={set("password")}
+                  placeholder="At least 6 characters"
+                  required
+                />
+
+                <button
+                  type="button"
+                  onClick={() => setShowPassword(!showPassword)}
+                  className="absolute right-2 top-1/2 -translate-y-1/2 p-1.5 rounded-lg text-muted hover:text-brand-500 hover:bg-[var(--surface-hover)] transition-all duration-200"
+                  aria-label={showPassword ? "Hide password" : "Show password"}
+                >
+                  {showPassword ? <EyeOff size={20} /> : <Eye size={20} />}
+                </button>
+              </div>
             </div>
             {err && (
               <div className="text-sm text-rose-500 bg-rose-500/10 border border-rose-500/20 rounded-lg px-3 py-2">
@@ -111,7 +121,10 @@ export default function Register() {
 
           <div className="text-center mt-5 text-sm text-soft">
             Already have an account?{" "}
-            <Link to="/login" className="text-brand-600 dark:text-brand-300 font-medium">
+            <Link
+              to="/login"
+              className="text-brand-600 dark:text-brand-300 font-medium"
+            >
               Log in
             </Link>
           </div>
