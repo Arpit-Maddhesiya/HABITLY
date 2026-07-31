@@ -28,6 +28,27 @@ const buildWeeklyContext = async (userId) => {
 
 export const weeklyReport = async (req, res) => {
   try {
+    const today = new Date();
+    const day = today.getDay();
+    const diff = day === 0 ? 6 : day - 1;
+
+    const weekStart = new Date(today);
+    weekStart.setDate(today.getDate() - diff);
+    weekStart.setHours(0, 0, 0, 0);
+
+    const existingReport = await AIInsight.findOne({
+      userId: req.user._id,
+      type: "weekly",
+      createdAt: { $gte: weekStart },
+    }).sort({ createdAt: -1 });
+
+    if (existingReport) {
+      return res.json({
+        content: existingReport.content,
+        generatedAt: existingReport.createdAt,
+      });
+    }
+
     const ctx = await buildWeeklyContext(req.user._id);
     if (!ctx.perHabit.length) {
       return res.json({
@@ -47,12 +68,16 @@ export const weeklyReport = async (req, res) => {
       user: userMsg,
     });
 
-    await AIInsight.create({
+    const report = await AIInsight.create({
       userId: req.user._id,
       type: "weekly",
       content,
     });
-    res.json({ content });
+
+    res.json({
+      content: report.content,
+      generatedAt: report.createdAt,
+    });
   } catch (err) {
     res.status(500).json({ message: err.message });
   }
@@ -162,7 +187,6 @@ export const chatAnalysis = async (req, res) => {
       userId: req.user._id,
       completedDate: { $gte: days[0], $lte: days[days.length - 1] },
     });
-  
 
     const context = habits
       .map((h) => {

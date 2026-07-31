@@ -48,9 +48,13 @@ export default function CategoryPieChart({ data }) {
               <Tooltip
                 contentStyle={{
                   background:
-                    theme === "dark" ? "rgba(20,20,36,0.95)" : "rgba(255,255,255,0.95)",
+                    theme === "dark"
+                      ? "rgba(20,20,36,0.95)"
+                      : "rgba(255,255,255,0.95)",
                   border: `1px solid ${
-                    theme === "dark" ? "rgba(255,255,255,0.1)" : "rgba(15,15,27,0.08)"
+                    theme === "dark"
+                      ? "rgba(255,255,255,0.1)"
+                      : "rgba(15,15,27,0.08)"
                   }`,
                   borderRadius: 12,
                   fontSize: 12,
@@ -59,10 +63,16 @@ export default function CategoryPieChart({ data }) {
                 }}
               />
               <Legend
-                wrapperStyle={{
-                  fontSize: 12,
-                  color: theme === "dark" ? "#b8b8c8" : "#4e4e59",
-                }}
+                formatter={(value) => (
+                  <span
+                    style={{
+                      color: isDark ? "#f3f4f6" : "#374151",
+                      fontSize: 12,
+                    }}
+                  >
+                    {value}
+                  </span>
+                )}
                 iconType="circle"
                 iconSize={8}
               />

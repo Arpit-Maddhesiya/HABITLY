@@ -43,7 +43,6 @@ const PIE_COLORS = [
   "#14b8a6",
 ];
 
-const REPORT_CACHE_KEY = (weekStart) => `weekly-report-${weekStart}`;
 
 export default function Insights() {
   const { theme } = useTheme();
@@ -87,17 +86,7 @@ export default function Insights() {
         setLogs(logsRes.data);
 
         // try to load cached report for this week
-        const cached = localStorage.getItem(REPORT_CACHE_KEY(thisWeek[0].key));
-        if (cached) {
-          try {
-            const { content, generatedAt } = JSON.parse(cached);
-            setReport(content);
-            setReportGeneratedAt(new Date(generatedAt));
-          } catch {}
-        } else {
-          // auto-generate on first visit this week
-          generateReport();
-        }
+        generateReport();
       } finally {
         setLoading(false);
       }
@@ -108,14 +97,14 @@ export default function Insights() {
   const generateReport = async () => {
     setReportLoading(true);
     try {
-      const res = await api.post("/ai/weekly-report");
-      setReport(res.data.content);
-      const now = new Date();
-      setReportGeneratedAt(now);
-      localStorage.setItem(
-        REPORT_CACHE_KEY(thisWeek[0].key),
-        JSON.stringify({ content: res.data.content, generatedAt: now })
-      );
+      
+     const res = await api.post("/ai/weekly-report");
+     setReport(res.data.content);
+
+     setReportGeneratedAt(
+       res.data.generatedAt ? new Date(res.data.generatedAt) : new Date(),
+     );
+
     } catch {
       setReport("Failed to generate the report. Please try again.");
     } finally {
