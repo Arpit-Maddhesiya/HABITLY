@@ -50,48 +50,59 @@ All five run through one reusable `chatCompletion()` wrapper around the Gemini A
 
 ## 📸 Screenshots
 
-> Images below are placeholders — drop your real screenshots into [`docs/screenshots/`](docs/screenshots) using the filenames shown and they'll render automatically once pushed to GitHub.
+> Images below are temporary placeholders (hosted on placehold.co so they render right now). Swap each `src=` for your real screenshot link once you have one — see below.
 
 <table>
 <tr>
 <td width="50%">
 <p align="center"><b>Landing Page</b></p>
-<img src="docs/screenshots/landing.png" alt="Landing page">
+<img src="https://placehold.co/640x400/6366f1/ffffff?text=Landing+Page" alt="Landing page">
 </td>
 <td width="50%">
 <p align="center"><b>Dashboard</b></p>
-<img src="docs/screenshots/dashboard.png" alt="Dashboard">
+<img src="https://placehold.co/640x400/6366f1/ffffff?text=Dashboard" alt="Dashboard">
 </td>
 </tr>
 <tr>
 <td width="50%">
 <p align="center"><b>Weekly AI Report</b></p>
-<img src="docs/screenshots/weekly-report.png" alt="Weekly AI report">
+<img src="https://placehold.co/640x400/8b5cf6/ffffff?text=Weekly+AI+Report" alt="Weekly AI report">
 </td>
 <td width="50%">
 <p align="center"><b>AI Chat</b></p>
-<img src="docs/screenshots/chat.png" alt="AI chat">
+<img src="https://placehold.co/640x400/8b5cf6/ffffff?text=AI+Chat" alt="AI chat">
 </td>
 </tr>
 <tr>
 <td width="50%">
 <p align="center"><b>Habit Stats / Heatmap</b></p>
-<img src="docs/screenshots/stats.png" alt="Stats heatmap">
+<img src="https://placehold.co/640x400/06b6d4/ffffff?text=Stats+%2F+Heatmap" alt="Stats heatmap">
 </td>
 <td width="50%">
 <p align="center"><b>Dark Mode</b></p>
-<img src="docs/screenshots/dark-mode.png" alt="Dark mode">
+<img src="https://placehold.co/640x400/1e1b4b/ffffff?text=Dark+Mode" alt="Dark mode">
 </td>
 </tr>
 </table>
 
 <details>
-<summary><b>How to add real screenshots</b> (click to expand)</summary>
+<summary><b>How to get a real, working image link from GitHub</b> (click to expand)</summary>
 
-1. Run the app locally (see <a href="#-quick-start">Quick Start</a>) or use your deployed link.
-2. Screenshot each page at ~1280×800 for a clean, uniform grid.
-3. Save into `docs/screenshots/` using the exact filenames above (`landing.png`, `dashboard.png`, etc.).
-4. Commit and push — GitHub resolves the relative paths automatically, no code changes needed.
+There are two reliable ways to host a screenshot so its link works in a README:
+
+**Method 1 — Drag-and-drop into a GitHub comment (fastest, no repo commit needed)**
+1. Go to any issue, PR, or discussion on your repo (or open a new one — you don't have to submit it).
+2. Drag your screenshot image directly into the comment text box.
+3. GitHub auto-uploads it and inserts a Markdown link like `![image](https://github.com/user-attachments/assets/xxxxxxxx)`.
+4. Copy that URL — it works permanently, even if you never submit the comment.
+5. Paste it as the `src=` value in the README, replacing the matching `placehold.co` link.
+
+**Method 2 — Commit the file to your repo, then link via raw.githubusercontent.com**
+1. Save your screenshot into `docs/screenshots/` (e.g. `docs/screenshots/dashboard.png`) — already created in this repo.
+2. `git add docs/screenshots/dashboard.png && git commit -m "Add dashboard screenshot" && git push`
+3. On GitHub, open the file and click **Raw** — copy that URL. It looks like:
+   `https://raw.githubusercontent.com/Arpit-Maddhesiya/HABITLY/main/docs/screenshots/dashboard.png`
+4. Use that as the `src=` value. (A relative path like `docs/screenshots/dashboard.png` also works *once the file is pushed* — GitHub resolves it automatically on the repo's own README page. It just won't render anywhere else, like in this chat preview, which is why it looked broken here.)
 
 </details>
 
@@ -102,18 +113,25 @@ All five run through one reusable `chatCompletion()` wrapper around the Gemini A
 ```
 Habitly
 ├── backend/                     Express API (ESM, MongoDB via Mongoose)
+|   |
 │   ├── controllers/             auth · habits · logs · ai
+|   |
 │   ├── models/                  User · Habit · HabitLog · AIInsight
+|   |
 │   ├── middleware/               JWT auth guard · centralized error handler
+|   |
 │   ├── utils/aiService.js       Gemini client + 5 system prompts + JSON parser
+|   |
 │   └── server.js                CORS allow-list, health check, route mounting
 │
 └── frontend/habit-tracker/      React 19 + Vite + Tailwind 4
     ├── src/pages/               Landing · Login/Register · Dashboard · Habits
     │                             · Weekly · Insights · Stats
+    |
     ├── src/components/          20+ components incl. drag-and-drop habit grid,
     │                             heatmap/pie/bar charts (Recharts), animated
     │                             OrbitingHabits landing visual, AI chat panel
+    |
     └── src/context/             Auth + Theme (light/dark) providers
 ```
 
@@ -266,11 +284,6 @@ Then open a pull request. Bug reports and feature ideas are just as welcome as c
 
 ---
 
-## 📄 License
-
-Distributed under the [MIT License](LICENSE). Free to use, modify, and build on.
-
----
 
 <div align="center">
 
