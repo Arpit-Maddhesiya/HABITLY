@@ -136,7 +136,7 @@ export const getHabitStats = async (req, res) => {
       habitId: habit._id,
     }).sort({ completedDate: -1 });
 
-    const dateKeys = logs.map((l) => l.completedDate);
+    const dateKeys = logs.map((l) => l.completedDate.toISOString().slice(0, 10));
     const { current, longest } = calcStreak(dateKeys);
     const createdKey = habit.createdAt.toISOString().slice(0, 10);
     const today = todayKey();
@@ -178,7 +178,7 @@ export const getAllStats = async (req, res) => {
     const perHabit = habits.map((h) => {
       const hLogs = logs.filter((l) => String(l.habitId) === String(h._id));
       const keys = hLogs
-        .map((l) => l.completedDate)
+        .map((l) => l.completedDate.toISOString().slice(0, 10))
         .sort()
         .reverse();
       const { current, longest } = calcStreak(keys);

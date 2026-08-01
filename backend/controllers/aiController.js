@@ -239,7 +239,7 @@ export const morningMotivation = async (req, res) => {
       .map((h) => {
         const hLogs = logs
           .filter((l) => String(l.habitId) === String(h._id))
-          .map((l) => l.completedDate)
+          .map((l) => l.completedDate.toISOString().slice(0, 10))
           .sort()
           .reverse();
         const { current } = calcStreak(hLogs);

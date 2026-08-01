@@ -52,7 +52,7 @@ export const calcStreak = (sortedDateKeys) => {
       cursor = subDays(cursor, 1);
     }
   }
-  const sortedAsc = [...sortedDateKeys].sort();
+  const sortedAsc = [...new Set(sortedDateKeys)].sort();
   let longest = 0;
   let run = 0;
   let prev = null;

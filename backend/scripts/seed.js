@@ -194,6 +194,26 @@ async function seed() {
       }
     }
 
+
+    const today = normalizeDate(new Date());
+
+    for (const habit of habits) {
+      const exists = logs.some(
+        (l) =>
+          String(l.habitId) === String(habit._id) &&
+          l.completedDate.getTime() === today.getTime(),
+      );
+
+      if (!exists) {
+        logs.push({
+          userId: user._id,
+          habitId: habit._id,
+          completedDate: today,
+          notes: "",
+        });
+      }
+    }
+
     await HabitLog.insertMany(logs);
 
     console.log(`${logs.length} habit logs created`);
