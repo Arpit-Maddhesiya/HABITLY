@@ -1,5 +1,6 @@
 <div align="center">
 
+<img src="frontend/habit-tracker/src/assets/hero.png" alt="Habitly hero" width="720">
 
 # 🪐 Habitly
 
@@ -7,7 +8,7 @@
 
 *MERN stack + Gemini AI: weekly reports, streak-recovery plans, and a chat that actually knows your data.*
 
-[![Live Demo](https://img.shields.io/badge/🚀_Live_Demo-Coming_Soon-6366f1?style=for-the-badge)](#)
+[![Live Demo](https://img.shields.io/badge/🚀_Live_Demo-habitly--ai.vercel.app-6366f1?style=for-the-badge)](https://habitly-ai.vercel.app/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg?style=for-the-badge)](LICENSE)
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=for-the-badge)](#-contributing)
 
@@ -50,13 +51,26 @@ All five run through one reusable `chatCompletion()` wrapper around the Gemini A
 
 ## 📸 Screenshots
 
+<<<<<<< HEAD
 > Images below are temporary placeholders (hosted on placehold.co so they render right now). Swap each `src=` for your real screenshot link once you have one — see below.
 
+=======
+>>>>>>> aa85b1d (Add Screenshots for README.md)
 <table>
 <tr>
 <td width="50%">
 <p align="center"><b>Landing Page</b></p>
 <img src="https://placehold.co/640x400/6366f1/ffffff?text=Landing+Page" alt="Landing page">
+</td>
+<td width="50%">
+<p align="center"><b>Login</b></p>
+<img src="docs/screenshots/login.png" alt="Login page">
+</td>
+</tr>
+<tr>
+<td width="50%">
+<p align="center"><b>Sign Up</b></p>
+<img src="docs/screenshots/register.png" alt="Registration page">
 </td>
 <td width="50%">
 <p align="center"><b>Dashboard</b></p>
@@ -65,26 +79,55 @@ All five run through one reusable `chatCompletion()` wrapper around the Gemini A
 </tr>
 <tr>
 <td width="50%">
+<<<<<<< HEAD
 <p align="center"><b>Weekly AI Report</b></p>
 <img src="https://placehold.co/640x400/8b5cf6/ffffff?text=Weekly+AI+Report" alt="Weekly AI report">
 </td>
 <td width="50%">
 <p align="center"><b>AI Chat</b></p>
 <img src="https://placehold.co/640x400/8b5cf6/ffffff?text=AI+Chat" alt="AI chat">
+=======
+<p align="center"><b>Weekly Overview</b></p>
+<img src="docs/screenshots/weekly.png" alt="Weekly overview">
+</td>
+<td width="50%">
+<p align="center"><b>Insights — Charts & Category Breakdown</b></p>
+<img src="docs/screenshots/insights.png" alt="Insights charts">
+>>>>>>> aa85b1d (Add Screenshots for README.md)
 </td>
 </tr>
 <tr>
 <td width="50%">
+<<<<<<< HEAD
 <p align="center"><b>Habit Stats / Heatmap</b></p>
 <img src="https://placehold.co/640x400/06b6d4/ffffff?text=Stats+%2F+Heatmap" alt="Stats heatmap">
 </td>
 <td width="50%">
 <p align="center"><b>Dark Mode</b></p>
 <img src="https://placehold.co/640x400/1e1b4b/ffffff?text=Dark+Mode" alt="Dark mode">
+=======
+<p align="center"><b>Statistics — 30-Day Trends</b></p>
+<img src="docs/screenshots/statistics.png" alt="Statistics page">
+</td>
+<td width="50%">
+<p align="center"><b>Weekly AI Report (Light Mode)</b></p>
+<img src="docs/screenshots/weekly-report-light.png" alt="Weekly AI report in light mode">
+</td>
+</tr>
+<tr>
+<td width="50%">
+<p align="center"><b>AI Habit Suggestions</b></p>
+<img src="docs/screenshots/ai-suggestions.png" alt="AI habit suggestions modal">
+</td>
+<td width="50%">
+<p align="center"><b>AI Chat — Ask Your Own Data</b></p>
+<img src="docs/screenshots/ai-chat.png" alt="AI chat analysis panel">
+>>>>>>> aa85b1d (Add Screenshots for README.md)
 </td>
 </tr>
 </table>
 
+<<<<<<< HEAD
 <details>
 <summary><b>How to get a real, working image link from GitHub</b> (click to expand)</summary>
 
@@ -103,6 +146,14 @@ There are two reliable ways to host a screenshot so its link works in a README:
 3. On GitHub, open the file and click **Raw** — copy that URL. It looks like:
    `https://raw.githubusercontent.com/Arpit-Maddhesiya/HABITLY/main/docs/screenshots/dashboard.png`
 4. Use that as the `src=` value. (A relative path like `docs/screenshots/dashboard.png` also works *once the file is pushed* — GitHub resolves it automatically on the repo's own README page. It just won't render anywhere else, like in this chat preview, which is why it looked broken here.)
+=======
+<p align="center"><i>Live at <a href="https://habitly-ai.vercel.app/">habitly-ai.vercel.app</a></i></p>
+
+<details>
+<summary><b>Note for local development</b> (click to expand)</summary>
+
+These screenshots are committed to [`docs/screenshots/`](docs/screenshots) and referenced by relative path, so they render automatically on GitHub — no extra hosting needed. If you fork this repo and update the UI, just replace the matching PNG in that folder to keep the README in sync.
+>>>>>>> aa85b1d (Add Screenshots for README.md)
 
 </details>
 
