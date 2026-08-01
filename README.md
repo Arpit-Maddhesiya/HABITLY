@@ -1,350 +1,825 @@
+<!-- ========================================================= -->
+<!--                         HABITLY                           -->
+<!-- ========================================================= -->
+
 <div align="center">
 
-<img src="frontend/habit-tracker/src/assets/hero.png" alt="Habitly hero" width="720">
+# 🌟 HABITLY
 
-# 🪐 Habitly
+### *Build Better Habits. Stay Consistent. Grow Every Day.*
 
-**A habit tracker that notices when you're slipping — and tells you what to do about it.**
+### 🚀 AI-Powered Habit Tracking Platform built with MERN Stack + Gemini AI
 
-*MERN stack + Gemini AI: weekly reports, streak-recovery plans, and a chat that actually knows your data.*
+<p align="center">
 
-[![Live Demo](https://img.shields.io/badge/🚀_Live_Demo-habitly--ai.vercel.app-6366f1?style=for-the-badge)](https://habitly-ai.vercel.app/)
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg?style=for-the-badge)](LICENSE)
-[![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=for-the-badge)](#-contributing)
+<a href="https://habitly-ai.vercel.app/">
+<img src="https://img.shields.io/badge/🌐 Live Demo-Visit Website-7C3AED?style=for-the-badge">
+</a>
 
-![React](https://img.shields.io/badge/React_19-61DAFB?style=flat-square&logo=react&logoColor=black)
-![Vite](https://img.shields.io/badge/Vite-646CFF?style=flat-square&logo=vite&logoColor=white)
-![Tailwind](https://img.shields.io/badge/Tailwind_CSS_4-06B6D4?style=flat-square&logo=tailwindcss&logoColor=white)
-![Node.js](https://img.shields.io/badge/Node.js-339933?style=flat-square&logo=node.js&logoColor=white)
-![Express](https://img.shields.io/badge/Express_4-000000?style=flat-square&logo=express&logoColor=white)
-![MongoDB](https://img.shields.io/badge/MongoDB-47A248?style=flat-square&logo=mongodb&logoColor=white)
-![Gemini](https://img.shields.io/badge/Gemini_AI-8B5CF6?style=flat-square&logo=googlegemini&logoColor=white)
-![JWT](https://img.shields.io/badge/Auth-JWT-000000?style=flat-square&logo=jsonwebtokens&logoColor=white)
+<a href="LICENSE">
+<img src="https://img.shields.io/github/license/Arpit-Maddhesiya/HABITLY?style=for-the-badge">
+</a>
 
-[Overview](#-why-this-isnt-just-another-habit-tracker) •
-[Screenshots](#-screenshots) •
-[Architecture](#-architecture) •
-[Quick Start](#-quick-start) •
-[API](#-api-reference) •
-[Roadmap](#-roadmap) •
-[Contributing](#-contributing)
+<a href="https://github.com/Arpit-Maddhesiya/HABITLY/stargazers">
+<img src="https://img.shields.io/github/stars/Arpit-Maddhesiya/HABITLY?style=for-the-badge">
+</a>
+
+<a href="https://github.com/Arpit-Maddhesiya/HABITLY/network/members">
+<img src="https://img.shields.io/github/forks/Arpit-Maddhesiya/HABITLY?style=for-the-badge">
+</a>
+
+<a href="https://github.com/Arpit-Maddhesiya/HABITLY/issues">
+<img src="https://img.shields.io/github/issues/Arpit-Maddhesiya/HABITLY?style=for-the-badge">
+</a>
+
+<a href="https://github.com/Arpit-Maddhesiya/HABITLY/commits/main">
+<img src="https://img.shields.io/github/last-commit/Arpit-Maddhesiya/HABITLY?style=for-the-badge">
+</a>
+
+</p>
+
+<p align="center">
+
+<img src="https://img.shields.io/badge/React-19-61DAFB?logo=react&logoColor=white">
+
+<img src="https://img.shields.io/badge/Vite-646CFF?logo=vite&logoColor=white">
+
+<img src="https://img.shields.io/badge/Node.js-339933?logo=node.js&logoColor=white">
+
+<img src="https://img.shields.io/badge/Express-000000?logo=express">
+
+<img src="https://img.shields.io/badge/MongoDB-47A248?logo=mongodb&logoColor=white">
+
+<img src="https://img.shields.io/badge/Gemini-AI-blueviolet">
+
+<img src="https://img.shields.io/badge/TailwindCSS-06B6D4?logo=tailwindcss&logoColor=white">
+
+<img src="https://img.shields.io/badge/JWT-Authentication-black">
+
+</p>
+
+---
+
+### ⭐ If you like this project, consider giving it a star!
+
+It motivates me to build more impactful open-source projects ❤️
 
 </div>
 
 ---
 
-## 🌅 Why this isn't just another habit tracker
+# 📑 Table of Contents
 
-Most habit trackers stop at "did you check the box today." Habitly's backend keeps a real audit trail (`HabitLog` documents, one per completion, uniquely indexed by user + habit + date) and feeds that history to **Gemini** through five purpose-built prompts, each with its own system instruction and personality:
-
-| Feature | What it actually does |
-|---|---|
-| 🌅 **Morning Motivation** | On login, pulls your active habits and current streaks and generates a short, personal nudge — under 60 words, mentions real habits by name, capped at one emoji so it doesn't feel like spam. |
-| 📊 **Weekly AI Report** | Analyzes your last 7 days and writes a 120–180 word plain-prose report: what struggled, what pattern it noticed, one specific piece of encouragement. |
-| 🩹 **Streak Recovery Plan** | Break a streak and instead of shame, you get a structured 3-day comeback plan (Day 1 / Day 2 / Day 3, one concrete action each) tailored to the habit you dropped. |
-| 💡 **Habit Suggestions** | Describe your goals and get exactly 3 new habits back as structured JSON — name, category, frequency, icon, and *why* — ready to render straight into the UI. |
-| 💬 **AI Chat** | Ask questions about your own data ("why did I struggle on Tuesdays?") and get answers grounded only in your logged history. |
-
-All five run through one reusable `chatCompletion()` wrapper around the Gemini API (`backend/utils/aiService.js`), so adding a sixth AI feature means writing a new system prompt, not new plumbing. No `GEMINI_API_KEY`? The app degrades gracefully with a placeholder response instead of crashing.
+- 🌟 About Habitly
+- 🚀 Live Demo
+- ✨ Features
+- 🤖 AI Features
+- 📸 Screenshots
+- 🎥 Demo
+- 🛠 Tech Stack
+- 🏗 Project Architecture
+- 📂 Folder Structure
+- 🗄 Database Design
+- 🔐 Authentication Flow
+- ⚡ Installation
+- 🔑 Environment Variables
+- 📡 API Reference
+- 🚀 Deployment
+- 📈 Performance
+- 🔮 Future Scope
+- 🤝 Contributing
+- 👨‍💻 Author
+- ⭐ Support
 
 ---
 
-## 📸 Screenshots
+# 🌍 Live Demo
 
-<<<<<<< HEAD
-> Images below are temporary placeholders (hosted on placehold.co so they render right now). Swap each `src=` for your real screenshot link once you have one — see below.
+## 🔗 Website
 
-=======
->>>>>>> aa85b1d (Add Screenshots for README.md)
+https://habitly-ai.vercel.app/
+
+---
+
+## 👤 Demo Credentials
+
+### Owner Account
+
+```text
+Email:
+arpit@owner.com
+
+Password:
+Owner123
+```
+
+---
+
+# 🌟 About Habitly
+
+Habitly is an AI-powered habit tracking application that helps users stay consistent, build productive routines, and understand their habits using intelligent insights.
+
+Unlike traditional habit trackers that simply mark tasks as completed, Habitly analyzes your habit history and provides personalized AI-generated recommendations, recovery plans, motivational messages, and weekly progress reports.
+
+The application is designed to combine productivity with artificial intelligence, making habit building smarter, more engaging, and more sustainable.
+
+---
+
+# ❓ Why Habitly?
+
+Most habit tracking applications only answer one question:
+
+> "Did you complete today's habit?"
+
+Habitly answers much more.
+
+✔ Why are your habits breaking?
+
+✔ Which day are you least productive?
+
+✔ What habits should you start next?
+
+✔ How can you recover from a broken streak?
+
+✔ What patterns exist in your routine?
+
+✔ Which category is improving the fastest?
+
+Instead of only tracking habits,
+
+Habitly understands them.
+
+---
+
+
+
+# 🚀 Key Features
+
+| Feature | Description |
+|---------|-------------|
+| 🔐 JWT Authentication | Secure Login & Registration |
+| 👤 User Profiles | Personalized Experience |
+| ➕ Habit CRUD | Create, Update & Delete Habits |
+| 📅 Daily Habit Tracking | Mark Daily Completion |
+| 🔥 Streak Counter | Track Consistency |
+| 📊 Analytics Dashboard | Interactive Charts |
+| 🟩 GitHub-style Heatmap | Visual Activity |
+| 📈 Weekly Reports | AI Generated |
+| 💡 Habit Suggestions | Gemini Powered |
+| 💬 AI Chat | Analyze User Habits |
+| 🩹 Recovery Plans | Recover Broken Streaks |
+| 🌞 Morning Motivation | Daily AI Message |
+| 🌙 Theme Switch | Light & Dark Mode |
+| 📱 Fully Responsive | Works Everywhere |
+
+---
+
+# 🤖 AI Features
+
+Habitly integrates Google's Gemini AI to make habit tracking intelligent rather than passive.
+
+### 🌞 Morning Motivation
+
+### 📊 Weekly AI Report
+
+### 🩹 Recovery Plan
+
+### 💡 Habit Suggestions
+
+### 💬 AI Chat
+
+Chat with your own productivity data.
+
+Examples:
+
+```
+Why am I missing workouts?
+
+Which habit is improving the most?
+
+What should I focus on next week?
+
+Which day am I least productive?
+
+How can I increase my streak?
+```
+
+---
+
+
+
+
+<!-- ========================================================= -->
+<!--                  SCREENSHOTS & SHOWCASE                   -->
+<!-- ========================================================= -->
+
+
+
+# 🖼 Screenshots
+
+## 🌐 Landing Page
+
+<div align="center">
+
+<img src="docs/screenshots/landing.png" width="95%" alt="Landing"/>
+
+</div>
+
+
+---
+
+## 🔐 Authentication
+
 <table>
+
 <tr>
+
 <td width="50%">
-<p align="center"><b>Landing Page</b></p>
-<img src="https://placehold.co/640x400/6366f1/ffffff?text=Landing+Page" alt="Landing page">
+
+<img src="docs/screenshots/login.png"/>
+
+<h3 align="center">Login</h3>
+
 </td>
+
 <td width="50%">
-<p align="center"><b>Login</b></p>
-<img src="docs/screenshots/login.png" alt="Login page">
+
+<img src="docs/screenshots/register.png"/>
+
+<h3 align="center">Registration</h3>
+
 </td>
+
 </tr>
-<tr>
-<td width="50%">
-<p align="center"><b>Sign Up</b></p>
-<img src="docs/screenshots/register.png" alt="Registration page">
-</td>
-<td width="50%">
-<p align="center"><b>Dashboard</b></p>
-<img src="https://placehold.co/640x400/6366f1/ffffff?text=Dashboard" alt="Dashboard">
-</td>
-</tr>
-<tr>
-<td width="50%">
-<<<<<<< HEAD
-<p align="center"><b>Weekly AI Report</b></p>
-<img src="https://placehold.co/640x400/8b5cf6/ffffff?text=Weekly+AI+Report" alt="Weekly AI report">
-</td>
-<td width="50%">
-<p align="center"><b>AI Chat</b></p>
-<img src="https://placehold.co/640x400/8b5cf6/ffffff?text=AI+Chat" alt="AI chat">
-=======
-<p align="center"><b>Weekly Overview</b></p>
-<img src="docs/screenshots/weekly.png" alt="Weekly overview">
-</td>
-<td width="50%">
-<p align="center"><b>Insights — Charts & Category Breakdown</b></p>
-<img src="docs/screenshots/insights.png" alt="Insights charts">
->>>>>>> aa85b1d (Add Screenshots for README.md)
-</td>
-</tr>
-<tr>
-<td width="50%">
-<<<<<<< HEAD
-<p align="center"><b>Habit Stats / Heatmap</b></p>
-<img src="https://placehold.co/640x400/06b6d4/ffffff?text=Stats+%2F+Heatmap" alt="Stats heatmap">
-</td>
-<td width="50%">
-<p align="center"><b>Dark Mode</b></p>
-<img src="https://placehold.co/640x400/1e1b4b/ffffff?text=Dark+Mode" alt="Dark mode">
-=======
-<p align="center"><b>Statistics — 30-Day Trends</b></p>
-<img src="docs/screenshots/statistics.png" alt="Statistics page">
-</td>
-<td width="50%">
-<p align="center"><b>Weekly AI Report (Light Mode)</b></p>
-<img src="docs/screenshots/weekly-report-light.png" alt="Weekly AI report in light mode">
-</td>
-</tr>
-<tr>
-<td width="50%">
-<p align="center"><b>AI Habit Suggestions</b></p>
-<img src="docs/screenshots/ai-suggestions.png" alt="AI habit suggestions modal">
-</td>
-<td width="50%">
-<p align="center"><b>AI Chat — Ask Your Own Data</b></p>
-<img src="docs/screenshots/ai-chat.png" alt="AI chat analysis panel">
->>>>>>> aa85b1d (Add Screenshots for README.md)
-</td>
-</tr>
+
 </table>
 
-<<<<<<< HEAD
-<details>
-<summary><b>How to get a real, working image link from GitHub</b> (click to expand)</summary>
+---
 
-There are two reliable ways to host a screenshot so its link works in a README:
+# 🏠 Dashboard
 
-**Method 1 — Drag-and-drop into a GitHub comment (fastest, no repo commit needed)**
-1. Go to any issue, PR, or discussion on your repo (or open a new one — you don't have to submit it).
-2. Drag your screenshot image directly into the comment text box.
-3. GitHub auto-uploads it and inserts a Markdown link like `![image](https://github.com/user-attachments/assets/xxxxxxxx)`.
-4. Copy that URL — it works permanently, even if you never submit the comment.
-5. Paste it as the `src=` value in the README, replacing the matching `placehold.co` link.
+<div align="center">
 
-**Method 2 — Commit the file to your repo, then link via raw.githubusercontent.com**
-1. Save your screenshot into `docs/screenshots/` (e.g. `docs/screenshots/dashboard.png`) — already created in this repo.
-2. `git add docs/screenshots/dashboard.png && git commit -m "Add dashboard screenshot" && git push`
-3. On GitHub, open the file and click **Raw** — copy that URL. It looks like:
-   `https://raw.githubusercontent.com/Arpit-Maddhesiya/HABITLY/main/docs/screenshots/dashboard.png`
-4. Use that as the `src=` value. (A relative path like `docs/screenshots/dashboard.png` also works *once the file is pushed* — GitHub resolves it automatically on the repo's own README page. It just won't render anywhere else, like in this chat preview, which is why it looked broken here.)
-=======
-<p align="center"><i>Live at <a href="https://habitly-ai.vercel.app/">habitly-ai.vercel.app</a></i></p>
+<img src="docs/screenshots/dashboard.png"/>
 
-<details>
-<summary><b>Note for local development</b> (click to expand)</summary>
-
-These screenshots are committed to [`docs/screenshots/`](docs/screenshots) and referenced by relative path, so they render automatically on GitHub — no extra hosting needed. If you fork this repo and update the UI, just replace the matching PNG in that folder to keep the README in sync.
->>>>>>> aa85b1d (Add Screenshots for README.md)
-
-</details>
+</div>
 
 ---
 
-## 🏗 Architecture
+# 📅 Weekly Overview
+
+<div align="center">
+
+<img src="docs/screenshots/weekly.png"/>
+
+</div>
+
+---
+
+# 📈 Statistics Dashboard
+
+<div align="center">
+
+<img src="docs/screenshots/statistics.png"/>
+
+</div>
+
+---
+
+# 🟩 GitHub Style Heatmap
+
+<div align="center">
+
+<img src="docs/screenshots/insights.png"/>
+
+</div>
+
+---
+
+# 🤖 AI Weekly Report
+
+<div align="center">
+
+<img src="docs/screenshots/weekly.png"/>
+
+</div>
+
+---
+
+# 💡 AI Habit Suggestions
+
+<div align="center">
+
+<img src="docs/screenshots/ai-suggestions.png"/>
+
+</div>
+
+Simply tell Habitly your goal
+
+Example
 
 ```
-Habitly
-├── backend/                     Express API (ESM, MongoDB via Mongoose)
-|   |
-│   ├── controllers/             auth · habits · logs · ai
-|   |
-│   ├── models/                  User · Habit · HabitLog · AIInsight
-|   |
-│   ├── middleware/               JWT auth guard · centralized error handler
-|   |
-│   ├── utils/aiService.js       Gemini client + 5 system prompts + JSON parser
-|   |
-│   └── server.js                CORS allow-list, health check, route mounting
+I want to become healthier.
+
+I want to wake up early.
+
+I want to learn DSA.
+
+I want to read books.
+```
+
+Gemini instantly recommends habits specifically designed for those goals.
+
+---
+
+# 💬 AI Productivity Chat
+
+<div align="center">
+
+<img src="docs/screenshots/ai-chat.png"/>
+
+</div>
+
+Chat with your own productivity history.
+
+Example questions
+
+```
+Why am I missing workouts?
+
+Which habit is improving the fastest?
+
+How productive was I this month?
+
+Suggest improvements.
+```
+
+---
+
+# 🌙 Dark Theme
+
+<table>
+
+<tr>
+
+<td width="50%">
+
+<img src="docs/screenshots/weekly-report-light.png"/>
+
+<h3 align="center">Light Theme</h3>
+
+</td>
+
+<td width="50%">
+
+<img src="docs/screenshots/weekly.png"/>
+
+<h3 align="center">Dark Theme</h3>
+
+</td>
+
+</tr>
+
+</table>
+
+
+---
+
+
+
+<!-- ========================================================= -->
+<!--                  ARCHITECTURE & DESIGN                    -->
+<!-- ========================================================= -->
+
+# 🏗 System Architecture
+
+Habitly follows a modern **three-tier architecture** with a React frontend, Express backend, MongoDB database, and Gemini AI integration.
+
+---
+
+## High-Level Architecture
+
+```mermaid
+flowchart LR
+
+A[👨 User]
+
+A --> B[⚛ React + Vite Frontend]
+
+B --> C[🌐 Express REST API]
+
+C --> D[(🍃 MongoDB)]
+
+C --> E[🤖 Gemini AI]
+
+E --> C
+
+D --> C
+
+C --> B
+
+B --> A
+```
+
+---
+# 🗄 Database Design
+
+Habitly stores data in MongoDB using four primary collections.
+
+```mermaid
+erDiagram
+
+USER ||--o{ HABIT : owns
+
+USER ||--o{ HABITLOG : creates
+
+USER ||--o{ AIINSIGHT : receives
+
+HABIT ||--o{ HABITLOG : contains
+```
+
+---
+
+
+# 🔐 Authentication Flow
+
+```mermaid
+sequenceDiagram
+
+User->>Frontend: Login
+
+Frontend->>Backend: POST /login
+
+Backend->>MongoDB: Verify User
+
+MongoDB-->>Backend: User Found
+
+Backend-->>Frontend: JWT Token
+
+Frontend->>Browser: Store Token
+
+Browser->>Frontend: Future Requests
+
+Frontend->>Backend: Authorization Header
+
+Backend->>JWT Middleware: Verify
+
+JWT Middleware-->>Backend: Authenticated
+
+Backend-->>Frontend: Protected Data
+```
+
+---
+
+
+# 📦 API Architecture
+
+```text
+/api
 │
-└── frontend/habit-tracker/      React 19 + Vite + Tailwind 4
-    ├── src/pages/               Landing · Login/Register · Dashboard · Habits
-    │                             · Weekly · Insights · Stats
-    |
-    ├── src/components/          20+ components incl. drag-and-drop habit grid,
-    │                             heatmap/pie/bar charts (Recharts), animated
-    │                             OrbitingHabits landing visual, AI chat panel
-    |
-    └── src/context/             Auth + Theme (light/dark) providers
+├── auth
+│     ├── register
+│     ├── login
+│     ├── me
+│     └── profile
+│
+├── habits
+│     ├── create
+│     ├── update
+│     ├── delete
+│     ├── archive
+│     └── reorder
+│
+├── logs
+│     ├── today
+│     ├── range
+│     ├── stats
+│     ├── heatmap
+│     └── completion
+│
+└── ai
+      ├── weekly-report
+      ├── suggest-habits
+      ├── recovery-plan
+      ├── morning
+      └── chat
 ```
-
-**Data model worth noting:** `HabitLog` has a compound unique index on `{ userId, habitId, completedDate }` — completions are idempotent at the database level, not just the UI, so double-submits or race conditions can't create duplicate check-ins. `AIInsight` persists every AI generation with a `type` enum (`weekly | suggestion | recovery | chat | morning`), so insights are cached and auditable rather than regenerated and thrown away.
-
-**Frontend stack choices:** React 19, Tailwind 4 (via the `@tailwindcss/vite` plugin, no separate config build step), `@dnd-kit` for drag-to-reorder habits, `react-markdown` for safely rendering AI responses, and `canvas-confetti` for the small dopamine hit on completion.
 
 ---
 
-## 🚀 Quick Start
+# ⚡ Technology Stack
 
-### Prerequisites
-- Node.js 18+
-- A MongoDB connection string ([Atlas](https://www.mongodb.com/cloud/atlas) free tier works fine)
-- (Optional) A [Gemini API key](https://ai.google.dev/) for the AI features
+| Layer | Technologies |
+|--------|--------------|
+| Frontend | React 19, Vite, Tailwind CSS |
+| Backend | Node.js, Express.js |
+| Database | MongoDB, Mongoose |
+| Authentication | JWT |
+| AI | Google Gemini |
+| Charts | Recharts |
+| HTTP Client | Axios |
+| Icons | Lucide React |
+| Deployment | Vercel + Render (or your backend host) |
 
-### Clone
+---
+
+# 🔒 Security Features
+
+- JWT Authentication
+- Password Hashing
+- Protected Routes
+- Authorization Middleware
+- Secure Environment Variables
+- MongoDB Validation
+- CORS Configuration
+- Input Validation
+- Error Handling
+- Token-Based API Access
+
+---
+
+# 📈 Scalability Highlights
+
+- Modular folder structure
+- RESTful API design
+- Reusable React components
+- Centralized API client
+- AI service abstraction
+- Separate controller/model layers
+- Extensible AI prompt system
+- Database indexing for habit logs
+- Environment-based configuration
+
+---
+
+<div align="center">
+
+# 🏛 Built Using Modern Software Engineering Principles
+
+### Modular • Scalable • Maintainable • AI-Driven
+
+</div>
+
+<!-- ========================================================= -->
+<!--            INSTALLATION • DEPLOYMENT • API                -->
+<!-- ========================================================= -->
+
+# ⚡ Getting Started
+
+Get Habitly running locally in just a few minutes.
+
+---
+
+# 📋 Prerequisites
+
+Before you begin, make sure you have the following installed:
+
+| Software | Version |
+|-----------|----------|
+| Node.js | 18+ |
+| npm | 9+ |
+| MongoDB | Local or Atlas |
+| Git | Latest |
+| Gemini API Key | Optional |
+
+---
+
+# 📥 Clone Repository
 
 ```bash
 git clone https://github.com/Arpit-Maddhesiya/HABITLY.git
 cd HABITLY
 ```
 
-### 1. Backend
+---
+
+# 📂 Project Structure
+
+```
+HABITLY/
+├── backend/
+├── frontend/
+├── docs/
+├── README.md
+└── LICENSE
+```
+
+---
+
+# 🚀 Backend Setup
+
+Navigate to backend
 
 ```bash
 cd backend
+```
+
+Install dependencies
+
+```bash
 npm install
 ```
 
-Create `backend/.env`:
+---
+
+## Backend Environment Variables
+
+Create
+
+```
+backend/.env
+```
 
 ```env
 PORT=8000
 MONGO_URI=your_mongodb_connection_string
 JWT_SECRET=your_secret_key
 CLIENT_URL=http://localhost:5173
-GEMINI_API_KEY=your_gemini_api_key      # optional — AI routes degrade gracefully without it
-GEMINI_MODEL=models/gemini-flash-latest # optional override
+GEMINI_API_KEY=your_gemini_api_key
+GEMINI_MODEL=models/gemini-2.5-flash
 ```
+
+---
+
+## Start Backend
 
 ```bash
-npm run dev      # nodemon, hot reload on http://localhost:8000
-npm run seed      # optional: seed sample habits/logs
+npm run dev
 ```
 
-### 2. Frontend
+Server starts on
+
+```
+http://localhost:8000
+```
+
+---
+
+# 💻 Frontend Setup
+
+Navigate
 
 ```bash
 cd frontend/habit-tracker
+```
+
+Install packages
+
+```bash
 npm install
 ```
 
-Create `frontend/habit-tracker/.env`:
+---
+
+## Frontend Environment Variables
+
+Create
+
+```
+frontend/habit-tracker/.env
+```
 
 ```env
 VITE_API_URL=http://localhost:8000/api
 ```
 
-```bash
-npm run dev       # http://localhost:5173
-```
-
-CORS is already configured to allow any `localhost`/`127.0.0.1` origin in dev, plus whatever's in `CLIENT_URL` for production.
-
 ---
 
-## 📡 API Reference
-
-All routes are prefixed `/api` and, except `/auth/register` and `/auth/login`, require `Authorization: Bearer <jwt>`.
-
-<details>
-<summary><b>Auth</b></summary>
-
-```
-POST   /auth/register
-POST   /auth/login
-GET    /auth/me
-PUT    /auth/profile
-```
-</details>
-
-<details>
-<summary><b>Habits</b></summary>
-
-```
-GET    /habits
-POST   /habits
-PUT    /habits/:id
-DELETE /habits/:id
-PUT    /habits/:id/archive
-PUT    /habits/reorder
-```
-</details>
-
-<details>
-<summary><b>Logs</b></summary>
-
-```
-POST   /logs
-DELETE /logs
-GET    /logs/today
-GET    /logs/range
-GET    /logs/heatmap
-GET    /logs/stats
-GET    /logs/stats/:habitId
-```
-</details>
-
-<details>
-<summary><b>AI</b></summary>
-
-```
-POST   /ai/weekly-report
-POST   /ai/suggest-habits
-POST   /ai/recovery-plan
-POST   /ai/chat
-GET    /ai/morning
-```
-</details>
-
-```
-GET    /health
-```
-
----
-
-## 🗺 Roadmap
-
-- [ ] Email verification
-- [ ] Push notifications for daily reminders
-- [ ] Calendar integration
-- [ ] Social / shared habit groups
-- [ ] Offline support (PWA)
-- [ ] Live production deployment + demo link
-
----
-
-## 🤝 Contributing
-
-Contributions are welcome — especially around the AI prompt design in `backend/utils/aiService.js`, the most fun file in the repo to iterate on.
+## Start Frontend
 
 ```bash
-git checkout -b feature/your-feature
-git commit -m "Add your feature"
-git push origin feature/your-feature
+npm run dev
 ```
 
-Then open a pull request. Bug reports and feature ideas are just as welcome as code — open an [issue](https://github.com/Arpit-Maddhesiya/HABITLY/issues).
+Application
+
+```
+http://localhost:5173
+```
+
+---
+
+
+# 📦 Environment Variables
+
+## Backend
+
+| Variable | Description |
+|-----------|-------------|
+| PORT | Backend Port |
+| MONGO_URI | MongoDB Connection |
+| JWT_SECRET | JWT Secret |
+| CLIENT_URL | Frontend URL |
+| GEMINI_API_KEY | Google AI Key |
+| GEMINI_MODEL | AI Model |
+
+---
+
+
+# 🔄 API Lifecycle
+
+```text
+Client
+↓
+Axios
+↓
+Express
+↓
+Route
+↓
+Middleware
+↓
+Controller
+↓
+Database
+↓
+Response
+```
+
+---
+
+# 🛠 Scripts
+
+Backend
+
+```bash
+npm run dev
+npm start
+npm run seed
+```
+
+Frontend
+
+```bash
+npm run dev
+npm run build
+npm run preview
+```
 
 ---
 
 
 <div align="center">
 
-## 👤 Author
+# 🚀 You're Ready to Build with Habitly
 
-**Arpit Maddhesiya**
+Clone • Configure • Run • Build • Deploy
 
-[![GitHub](https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white)](https://github.com/Arpit-Maddhesiya)
-[![LinkedIn](https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/arpit-maddhesiya/)
+</div>
 
-If Habitly helped you build a better morning routine — a ⭐ on this repo goes a long way.
+
+<div align="center">
+ 👨‍💻 Author
+
+<div align="center">
+
+## Arpit Maddhesiya
+
+**Full Stack Developer • MERN Enthusiast • AI Explorer**
+
+</div>
+
+<p align="center">
+
+<a href="https://github.com/Arpit-Maddhesiya">
+<img src="https://img.shields.io/badge/GitHub-181717?style=for-the-badge&logo=github">
+</a>
+
+<a href="https://www.linkedin.com/in/arpit-maddhesiya/">
+<img src="https://img.shields.io/badge/LinkedIn-0A66C2?style=for-the-badge&logo=linkedin">
+</a>
+
+<a href="mailto:your-email@example.com">
+<img src="https://img.shields.io/badge/Email-EA4335?style=for-the-badge&logo=gmail">
+</a>
+
+</p>
+
+
+
+<div align="center">
+
+## ⭐ Give this repository a Star!
+
+It motivates me to build more impactful open-source software.
+
+</div>
+
+
+<div align="center">
+
+**React • Node.js • Express • MongoDB • Gemini AI • Tailwind CSS**
+
+Made with ❤️ by **Arpit Maddhesiya**
+
+</div>
+
+<div align="center">
+
+
+### Stay Consistent
+
+### Grow Every Day
+
 
 </div>
