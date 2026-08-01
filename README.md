@@ -1,6 +1,5 @@
 <div align="center">
 
-<img src="frontend/habit-tracker/src/assets/hero.png" alt="Habitly hero" width="720">
 
 # 🪐 Habitly
 
