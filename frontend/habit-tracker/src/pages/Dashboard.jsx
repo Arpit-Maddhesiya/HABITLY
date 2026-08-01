@@ -130,6 +130,7 @@ export default function Dashboard() {
     const dismissed = JSON.parse(
       localStorage.getItem("recovery-dismissed") || "{}"
     );
+    
     for (const h of habits) {
       const s = streaksById[h._id];
       if (!s) continue;
